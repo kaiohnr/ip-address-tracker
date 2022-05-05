@@ -59,6 +59,10 @@
   max-width: 80px;
 }
 
+.btn-search--ip:hover {
+  background-color: #222;
+}
+
 @media (min-width: 600px) {
   .btn-search--ip {
     max-width: 110px;
