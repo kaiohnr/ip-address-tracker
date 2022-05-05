@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IP ADdress Tracker</title>
+    <link rel="icon" href="images/favicon-32x32.png" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+      crossorigin=""
+    ></script>
+  </head>
+  <body>
+    <header class="main--header">
+      <h1 class="main--header__title">IP Address Tracker</h1>
+      <label class="label--search" for="">
+        <input type="text" placeholder="Search for any IP address" class="insert--ip" />
+        <button class="btn-search--ip">
+          <img src="images/icon-arrow.svg" alt="" class="arrow-img" />
+        </button>
+      </label>
+      <div class="informations--container">
+        <ul class="informations--container__list">
+          <li class="list--item">
+            <p class="list--item__title">IP ADDRESS</p>
+            <p class="list--item__data" id="ip--data">192.212.174.101</p>
+          </li>
+          <li class="list--item">
+            <p class="list--item__title">LOCATION</p>
+            <p class="list--item__data" id="address--data">Brooklyn, NY 10001</p>
+          </li>
+          <li class="list--item">
+            <p class="list--item__title">TIMEZONE</p>
+            <p class="list--item__data" id="timezone--data">UTC - 05:00</p>
+          </li>
+          <li class="list--item">
+            <p class="list--item__title">ISP</p>
+            <p class="list--item__data" id="isp--data">SpaceX Starling</p>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div id="map"></div>
+    </main>
+    <script src="scripts/app.js"></script>
+  </body>
 </html>
