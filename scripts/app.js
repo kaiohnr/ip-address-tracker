@@ -1,13 +1,30 @@
 const getIpAddress = document.querySelector('.insert--ip');
 const btnSearchIpAddress = document.querySelector('.btn-search--ip');
 
-// Create map object 
+// Create map object
 const map = L.map('map').setView([51.505, -0.09], 13);
 
 let ipAddressEl = document.querySelector('#ip--data');
 let locationEl = document.querySelector('#address--data');
 let timezoneEl = document.querySelector('#timezone--data');
 let ispEl = document.querySelector('#isp--data');
+
+// Show user Ip Address
+
+const showUserIpAddress = function () {
+  function json(url) {
+    return fetch(url).then((res) => res.json());
+  }
+
+  let apiKey = '6472cd66d049021532dfec081722577bcd58011f669eff2536be1cc4';
+  json(`https://api.ipdata.co?api-key=${apiKey}`).then((data) => {
+    ipAddressEl.textContent = data.ip;
+    locationEl.textContent = data.city;
+    timezoneEl.textContent = data.time_zone.name;
+    ispEl.textContent = data.asn.name;
+  });
+};
+document.onload = showUserIpAddress();
 
 btnSearchIpAddress.addEventListener('click', function () {
   let lat;
@@ -41,10 +58,8 @@ btnSearchIpAddress.addEventListener('click', function () {
 });
 
 const createMap = function (lat, lng) {
-
   // Go to the specified latitude and longitude
   map.flyTo([lat, lng]);
-
 
   // Generate map
   L.tileLayer(
